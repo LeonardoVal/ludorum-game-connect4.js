@@ -1,12 +1,9 @@
-﻿require.config({ paths: {
-	'creatartis-base': 'lib/creatartis-base.min',
-	'sermat': 'lib/sermat-umd',
-	'ludorum': 'lib/ludorum.min',
-	'ludorum-game-connect4': 'lib/ludorum-game-connect4',
-	'playtester': 'lib/playtester-common'
-}});
-require(['creatartis-base', 'sermat', 'ludorum', 'ludorum-game-connect4', 'playtester'],
+﻿require(['creatartis-base', 'sermat', 'ludorum', 'ludorum-game-connect4', 'playtester'],
 		function (base, Sermat, ludorum, ludorum_game_connect4, PlayTesterApp) {
+	window.base = base;
+	window.Sermat = Sermat;
+	window.ludorum = ludorum;
+
 	var BasicHTMLInterface = ludorum.players.UserInterface.BasicHTMLInterface;
 
 	/** Custom HTML interface for Connect4.
