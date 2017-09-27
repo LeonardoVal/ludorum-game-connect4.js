@@ -13,7 +13,7 @@ module.exports = function (grunt) {
 		 		path: 'node_modules/sermat/build/sermat-umd-min.js' },
 			{ id: 'ludorum' },
 			{ id: 'playtester', dev: true, module: false,
-		 		path: 'node_modules/ludorum/build/playtester-common.js' } //FIXME
+		 		path: 'node_modules/ludorum/build/playtester-common.js' }
 		]
 	});
 
