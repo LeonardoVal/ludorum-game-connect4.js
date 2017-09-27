@@ -68,8 +68,8 @@
 	);
 	APP.playerUI("You")
 		.playerRandom()
-		.playerMonteCarlo("", true, Infinity, 100)
-		.playerMonteCarlo("", true, Infinity, 1000)
+		.playerMonteCarlo("", true, 10)
+		.playerMonteCarlo("", true, 100)
 		.playerAlfaBeta("", true, 3)
 		.playerAlfaBeta("", true, 5)
 		.selects(['player0', 'player1'])
