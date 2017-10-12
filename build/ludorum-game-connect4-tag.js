@@ -1,4 +1,6 @@
-/** Package wrapper and layout.
+(function (init) { "use strict";
+			this["ludorum-game-connect4"] = init(this.base,this.Sermat,this.ludorum,this.playtester);
+		}).call(this,/** Package wrapper and layout.
 */
 function __init__(base, Sermat, ludorum) { "use strict";
 // Import synonyms. ////////////////////////////////////////////////////////////////////////////////
@@ -136,5 +138,5 @@ Sermat.include(exports);
 // See __prologue__.js
 	return exports;
 }
-
-//# sourceMappingURL=ludorum-game-connect4-raw.js.map
+);
+//# sourceMappingURL=ludorum-game-connect4-tag.js.map
