@@ -1,8 +1,6 @@
-﻿require(['creatartis-base', 'sermat', 'ludorum', 'ludorum-game-connect4', 'playtester'],
-		function (base, Sermat, ludorum, ludorum_game_connect4, PlayTesterApp) {
-	window.base = base;
-	window.Sermat = Sermat;
-	window.ludorum = ludorum;
+require(['require-config'], function (init) { "use strict";
+init(['creatartis-base', 'sermat', 'ludorum', 'playtester', 'ludorum-game-connect4'],
+	function (base, Sermat, ludorum, PlayTesterApp, ludorum_game_connect4) {
 
 	var BasicHTMLInterface = ludorum.players.UserInterface.BasicHTMLInterface;
 
@@ -75,6 +73,5 @@
 		.selects(['player0', 'player1'])
 		.button('resetButton', document.getElementById('reset'), APP.reset.bind(APP))
 		.reset();
-}, function (err) {
-	console.error(err);
+}); // init()
 }); // require().
