@@ -42,6 +42,13 @@ footer {
 	color: white;
 }
 
+#boardWidth {
+	width: 3em;
+}
+#boardHeight {
+	width: 3em;
+}
+
 /* Game board *****************************************************************/
 #board table {
 	border-collapse: collapse;

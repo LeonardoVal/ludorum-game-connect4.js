@@ -64,14 +64,27 @@ init(['creatartis-base', 'sermat', 'ludorum', 'playtester', 'ludorum-game-connec
 		{ bar: document.getElementsByTagName('footer')[0] },
 		[ludorum_game_connect4]
 	);
+	APP.inputBoardWidth = document.getElementById('boardWidth');
+	APP.inputBoardHeight = document.getElementById('boardHeight');
 	APP.playerUI("You")
 		.playerRandom()
 		.playerMonteCarlo("", true, 10)
 		.playerMonteCarlo("", true, 100)
+		.playerUCT("", true, 10)
+		.playerUCT("", true, 100)
 		.playerAlfaBeta("", true, 3)
 		.playerAlfaBeta("", true, 5)
 		.selects(['player0', 'player1'])
-		.button('resetButton', document.getElementById('reset'), APP.reset.bind(APP))
+		.button('resetButton', document.getElementById('reset'), function () {
+			var boardWidth = +APP.inputBoardWidth.value || 7,
+				boardHeight = +APP.inputBoardHeight.value || 6;
+			APP.game = new ludorum_game_connect4.ConnectFour(null, 
+				new ludorum.utils.CheckerboardFromString(boardHeight, boardWidth)
+			);
+			APP.height = boardHeight;//FIXME
+			APP.width = boardWidth;
+			APP.reset();
+		})
 		.reset();
 }); // init()
 }); // require().
