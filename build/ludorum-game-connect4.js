@@ -61,11 +61,13 @@ var ConnectFour = exports.ConnectFour = declare(ludorum.games.ConnectionGame, {
 		var result = null;
 		if (!this.result()) {
 			var ms = [],
-				board = this.board.string,
-				offset = (this.height - 1) * this.width;
-			for (var i = 0; i < board.length; ++i) {
-				if (board.charAt(offset + i) === '.') {
-					ms.push(i);
+				board = this.board;
+			for (var col = 0; col < board.width; col++) {
+				for (var row = 0; row < board.height; row++) {
+					if (board.isEmptySquare([row, col])) {
+						ms.push(col);
+						break;
+					}
 				}
 			}
 			if (ms.length > 0) {
@@ -82,12 +84,12 @@ var ConnectFour = exports.ConnectFour = declare(ludorum.games.ConnectionGame, {
 	next: function next(moves, haps, update) {
 		raiseIf(haps, 'Haps are not required (given ', haps, ')!');
 		var activePlayer = this.activePlayer(),
-			board = this.board.string,
+			board = this.board,
 			column = +moves[activePlayer],
-			height = this.height,
-			width = this.width;
+			height = board.height,
+			width = board.width;
 		for (var row = 0; row < height; ++row) {
-			if (board.charAt(row * width + column) === '.') {
+			if (board.isEmptySquare([row, column])) {
 				var v = activePlayer === this.players[0] ? '0' : '1';
 				if (update) {
 					this.activatePlayers(this.opponent());
