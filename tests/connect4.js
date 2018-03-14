@@ -81,8 +81,6 @@ init(['creatartis-base', 'sermat', 'ludorum', 'playtester', 'ludorum-game-connec
 			APP.game = new ludorum_game_connect4.ConnectFour(null, 
 				new ludorum.utils.CheckerboardFromString(boardHeight, boardWidth)
 			);
-			APP.height = boardHeight;//FIXME
-			APP.width = boardWidth;
 			APP.reset();
 		})
 		.reset();
