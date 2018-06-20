@@ -24,8 +24,12 @@ module.exports = function (grunt) {
 				fileName: 'build/ludorum-game-connect4-tag',
 				wrapper: 'tag'
 			}
+		},
+		connect: {
+			playtester: 'tests/connect4.html'
 		}
 	});
 
 	grunt.registerTask('default', ['build']);
+	grunt.registerTask('playtest', ['compile', 'connect:playtester']);
 };
