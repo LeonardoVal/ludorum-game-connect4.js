@@ -5,7 +5,7 @@ module.exports = function (grunt) {
 		pkg: grunt.file.readJSON('package.json'),
 	});
 
-	require('creatartis-grunt').config(grunt, {
+	require('@creatartis/creatartis-grunt').config(grunt, {
 		sourceNames: ['__prologue__', 'ConnectFour', '__epilogue__'],
 		deps: [
 			{ id: 'creatartis-base', name: 'base' },
